@@ -50,29 +50,30 @@ function setToArray(mySet) {
 // Tipp: try not to switch to Arrays, this would slow down your code
 
 //My Solution
-// function unionOfSets(setA, setB) {
-//   let unionAB = new Set(setA);
-//   for (let item of setB) {
-//     unionAB.add(item);
-//   }
-//   return unionAB;
-// }
+function unionOfSets(setA, setB) {
+  let unionAB = new Set(setA);
+  for (let item of setB) {
+    unionAB.add(item);
+  }
+  return unionAB;
+}
 
 //Author's Solution
-function unionOfSets(a, b) {
-  const result = new Set(a);
-  b.forEach(el => result.add(el));
-  return result;
-}
+// function unionOfSets(a, b) {
+//   const result = new Set(a);
+//   b.forEach(el => result.add(el));
+//   return result;
+// }
 
 // Test Cases:
 // console.log(unionOfSets(new Set('123'), new Set('234')));
 // Expected new Set('1234')
 // console.log(unionOfSets(new Set([1, 2, 3]), new Set([3, 4, 5])));
 // Expected new Set([1, 2, 3, 4, 5])
-// console.log(
-//   unionOfSets(new Set([false, false, NaN]), new Set([true, true, NaN]))
-// );
+console
+  .log
+  // unionOfSets(new Set([false, false, NaN]), new Set([true, true, NaN]))
+  ();
 // Expected new Set([false, NaN, true])
 
 // ********************************************************
@@ -83,23 +84,31 @@ function unionOfSets(a, b) {
 // Get the intersection of the sets
 // In other words, return a set containing all elements that are both in setA as well as setB
 
-function intersectionOfSets(setA, setB) {
-  let intersectionAB = new Set();
-  for (let item of setB) {
-    if (setA.has(item)) {
-      intersectionAB.add(item);
-    }
-  }
+//My Solution
+// function intersectionOfSets(setA, setB) {
+//   let intersectionAB = new Set();
+//   for (let item of setB) {
+//     if (setA.has(item)) {
+//       intersectionAB.add(item);
+//     }
+//   }
 
-  return intersectionAB;
+//   return intersectionAB;
+// }
+
+//Author's Solution
+function intersectionOfSets(setA, setB) {
+  const int = new Set();
+  setA.forEach(el => setB.has(el) && int.add(el));
+  return int;
 }
 
 // Test Cases:
-console.log((new Set([1, 2, 3]), new Set([4, 5, 6])));
+console.log(intersectionOfSets(new Set([1, 2, 3]), new Set([4, 5, 6])));
 // Expected new Set()
-console.log((new Set('12345'), new Set([...'45678'])));
+console.log(intersectionOfSets(new Set('12345'), new Set([...'45678'])));
 // Expected new Set('45')
-console.log((new Set([1, 2, 3]), new Set([2, 3, 4])));
+console.log(intersectionOfSets(new Set([1, 2, 3]), new Set([2, 3, 4])));
 // Expected new Set([2, 3])
 
 // ********************************************************
