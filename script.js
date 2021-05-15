@@ -66,19 +66,41 @@ function unionOfSets(a, b) {
 }
 
 // Test Cases:
-console.log('result1=', unionOfSets(new Set('123'), new Set('234')));
+// console.log(unionOfSets(new Set('123'), new Set('234')));
 // Expected new Set('1234')
-console.log('result2=', unionOfSets(new Set([1, 2, 3]), new Set([3, 4, 5])));
+// console.log(unionOfSets(new Set([1, 2, 3]), new Set([3, 4, 5])));
 // Expected new Set([1, 2, 3, 4, 5])
-console.log(
-  'result3=',
-  unionOfSets(new Set([false, false, NaN]), new Set([true, true, NaN]))
-);
+// console.log(
+//   unionOfSets(new Set([false, false, NaN]), new Set([true, true, NaN]))
+// );
 // Expected new Set([false, NaN, true])
 
 // ********************************************************
-//1. Check if value is present in Set
+// 3. Get Intersection of two Javascript Sets
 // ********************************************************
+
+// Write a function that takes two sets, say setA and setB, as arguments
+// Get the intersection of the sets
+// In other words, return a set containing all elements that are both in setA as well as setB
+
+function intersectionOfSets(setA, setB) {
+  let intersectionAB = new Set();
+  for (let item of setB) {
+    if (setA.has(item)) {
+      intersectionAB.add(item);
+    }
+  }
+
+  return intersectionAB;
+}
+
+// Test Cases:
+console.log((new Set([1, 2, 3]), new Set([4, 5, 6])));
+// Expected new Set()
+console.log((new Set('12345'), new Set([...'45678'])));
+// Expected new Set('45')
+console.log((new Set([1, 2, 3]), new Set([2, 3, 4])));
+// Expected new Set([2, 3])
 
 // ********************************************************
 //1. Check if value is present in Set
