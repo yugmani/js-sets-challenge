@@ -149,13 +149,43 @@ function addElementsIntoSet(mySet, myArray) {
 }
 
 // Test Cases:
-console.log(addElementsIntoSet(new Set([1, 2, 3]), [4, 5, 6]));
+// console.log(addElementsIntoSet(new Set([1, 2, 3]), [4, 5, 6]));
 // Expected new Set([1, 2, 3, 4, 5, 6 ])
-console.log(addElementsIntoSet(new Set('12345'), [...'6789']));
+// console.log(addElementsIntoSet(new Set('12345'), [...'6789']));
 // Expected new Set([...'123456789'])
-console.log(addElementsIntoSet(new Set([1, 2, 3]), [2, 3]));
+// console.log(addElementsIntoSet(new Set([1, 2, 3]), [2, 3]));
 // Expected new Set([1, 2, 3])
 
 // ********************************************************
-//1. Check if value is present in Set
+//6. Creating Javascript Sets
 // ********************************************************
+
+// Write a function that takes three elements of any type as arguments
+// Create a Set from those elements
+// Return the result
+
+//My Solution
+function createSets(...args) {
+  const mySet = new Set();
+  for (let item of args) {
+    mySet.add(item);
+  }
+  return mySet;
+}
+
+//Author's Solution
+// function createSets(a, b, c) {
+//   const set = new Set();
+//   set.add(a);
+//   set.add(b);
+//   set.add(c);
+//   return set;
+// }
+
+// Test Cases:
+console.log(createSets(1, 'b', 3));
+// Expected new Set([1, 'b', 3])
+console.log(createSets(NaN, null, false));
+// Expected new Set([NaN, null, false])
+console.log(createSets('a', ['b'], { c: 3 }));
+// Expected new Set(['a', ['b'], { c: 3 }])
