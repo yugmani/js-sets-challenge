@@ -124,15 +124,36 @@ function deleteElementFromSet(mySet, item) {
   if (mySet.has(item)) {
     mySet.delete(item);
   }
-  return new Set(mySet);
+  return mySet;
 }
 
 // Test Cases:
-console.log(deleteElementFromSet(new Set([1, 2, 3]), 1));
+// console.log(deleteElementFromSet(new Set([1, 2, 3]), 1));
 // Expected new Set([2, 3])
-console.log(deleteElementFromSet(new Set('12345'), '3'));
+// console.log(deleteElementFromSet(new Set('12345'), '3'));
 // Expected new Set(['1', '2', '4', '5'])
-console.log(deleteElementFromSet(new Set([1, 2, 3]), 4));
+// console.log(deleteElementFromSet(new Set([1, 2, 3]), 4));
+// Expected new Set([1, 2, 3])
+
+// ********************************************************
+//5. Add multiple elements to Set
+// ********************************************************
+
+// Write a function that takes a Set and an array as arguments
+// If not already existing, add each element in the array to the Set
+// Return the modified Set
+
+function addElementsIntoSet(mySet, myArray) {
+  myArray.forEach(item => mySet.add(item));
+  return mySet;
+}
+
+// Test Cases:
+console.log(addElementsIntoSet(new Set([1, 2, 3]), [4, 5, 6]));
+// Expected new Set([1, 2, 3, 4, 5, 6 ])
+console.log(addElementsIntoSet(new Set('12345'), [...'6789']));
+// Expected new Set([...'123456789'])
+console.log(addElementsIntoSet(new Set([1, 2, 3]), [2, 3]));
 // Expected new Set([1, 2, 3])
 
 // ********************************************************
