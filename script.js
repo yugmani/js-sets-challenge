@@ -104,16 +104,36 @@ function intersectionOfSets(setA, setB) {
 }
 
 // Test Cases:
-console.log(intersectionOfSets(new Set([1, 2, 3]), new Set([4, 5, 6])));
+// console.log(intersectionOfSets(new Set([1, 2, 3]), new Set([4, 5, 6])));
 // Expected new Set()
-console.log(intersectionOfSets(new Set('12345'), new Set([...'45678'])));
+// console.log(intersectionOfSets(new Set('12345'), new Set([...'45678'])));
 // Expected new Set('45')
-console.log(intersectionOfSets(new Set([1, 2, 3]), new Set([2, 3, 4])));
+// console.log(intersectionOfSets(new Set([1, 2, 3]), new Set([2, 3, 4])));
 // Expected new Set([2, 3])
 
 // ********************************************************
-//1. Check if value is present in Set
+//4. Delete element from Set
 // ********************************************************
+
+// Write a function that takes a Set and a value as argument
+// If existing in the Set, remove the value from the Set
+// Return the result
+
+//My Solution
+function deleteElementFromSet(mySet, item) {
+  if (mySet.has(item)) {
+    mySet.delete(item);
+  }
+  return new Set(mySet);
+}
+
+// Test Cases:
+console.log(deleteElementFromSet(new Set([1, 2, 3]), 1));
+// Expected new Set([2, 3])
+console.log(deleteElementFromSet(new Set('12345'), '3'));
+// Expected new Set(['1', '2', '4', '5'])
+console.log(deleteElementFromSet(new Set([1, 2, 3]), 4));
+// Expected new Set([1, 2, 3])
 
 // ********************************************************
 //1. Check if value is present in Set
